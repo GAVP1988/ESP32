@@ -5,10 +5,10 @@ const char *ssid = "KNUET-Gast";
 const char *password = "Knuet201";
 WiFiClient espClient;
 
-const char *mqttBrocker = "broker.emqx.io";
-const char *topic = "esp32/test";
-const char *mqttUsername = "emqx";
-const char *mqttPassword = "public";
+const char *mqttBrocker = "139.13.210.118";
+const char *topic = "esp32/jade";
+const char *mqttUsername = "";
+const char *mqttPassword = "";
 const int mqttPort = 1883;
 PubSubClient client(espClient);
 
@@ -29,7 +29,7 @@ void setup() {
   while(!client.connected()){
     String clientID = "Guilherme";
     clientID += String(WiFi.macAddress());
-    Serial.printf("The %s tries to connect to mqtt borcker...\n",clientID.c_str());
+    Serial.printf("The %s tries to connect to mqtt brocker...\n",clientID.c_str());
     if(client.connect(clientID.c_str(), mqttUsername, mqttPassword)){
       Serial.println("mqtt brocker connected");
     }
